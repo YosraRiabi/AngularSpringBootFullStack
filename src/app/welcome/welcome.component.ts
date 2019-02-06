@@ -1,6 +1,7 @@
 // package com.riabi.springboot.web;
 // import org.springframework.boot.SpringApplication;
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 // @ComponentScan (
 //         value = "com.riabi.springboot.web")
@@ -15,13 +16,18 @@ export class WelcomeComponent implements OnInit {
 
   // String message = "some welcome message";
   message = 'some welcome message';
+  name = '';
 
   // public SprinBootFirstWebApplication() {
-  constructor() { }
+
+  // ActivatedRouter
+  constructor(private route: ActivatedRoute) { }
 
   // void init () {
   ngOnInit() {
     console.log(this.message);
+   // console.log(this.route.snapshot.params['name']);
+    this.name = this.route.snapshot.params['name'];
   }
 
 }
