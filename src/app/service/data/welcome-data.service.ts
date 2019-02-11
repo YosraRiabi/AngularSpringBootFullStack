@@ -13,10 +13,18 @@ export class WelcomeDataService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
+
 
   executeHelloWorldBeanService() {
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
-   // console.log('execute hello world bean service');
+    // console.log('execute hello world bean service');
   }
+
+  executeHelloWorldServiceWithPathVariable(name) {
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`);
+  }
+
 }
+
